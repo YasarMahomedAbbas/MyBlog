@@ -1,0 +1,111 @@
+name: PR Quality Checks
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-and-format:
+    name: Code Quality
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check Prettier formatting
+        run: |
+          npm run format:check
+          if [ $? -ne 0 ]; then
+            echo "❌ Code is not properly formatted. Run 'npm run format' to fix."
+            exit 1
+          else
+            echo "✅ Code formatting is correct"
+          fi
+
+      - name: Run ESLint
+        run: |
+          npm run lint
+          if [ $? -ne 0 ]; then
+            echo "❌ Linting failed. Run 'npm run lint:fix' to auto-fix issues."
+            exit 1
+          else
+            echo "✅ Linting passed"
+          fi
+
+      - name: TypeScript type check
+        run: |
+          npm run type-check
+          if [ $? -ne 0 ]; then
+            echo "❌ TypeScript errors found. Fix type errors before merging."
+            exit 1
+          else
+            echo "✅ TypeScript check passed"
+          fi
+
+  build-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    needs: lint-and-format
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: |
+          npm run build
+          if [ $? -ne 0 ]; then
+            echo "❌ Build failed. Fix build errors before merging."
+            exit 1
+          else
+            echo "✅ Build successful"
+          fi
+
+      - name: Generate Prisma client
+        run: npm run db:generate
+
+  security-audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run security audit
+        run: |
+          npm audit --audit-level moderate
+          if [ $? -ne 0 ]; then
+            echo "⚠️ Security vulnerabilities found. Review and fix before merging."
+            exit 1
+          else
+            echo "✅ Security audit passed"
+          fi

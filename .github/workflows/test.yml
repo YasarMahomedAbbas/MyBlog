@@ -1,0 +1,63 @@
+name: Test Suite
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npm run db:generate
+
+      - name: Run unit tests
+        run: |
+          npm run test
+          if [ $? -ne 0 ]; then
+            echo "❌ Unit tests failed. Fix failing tests before merging."
+            exit 1
+          else
+            echo "✅ All unit tests passed"
+          fi
+
+      - name: Generate test coverage report
+        run: npm run test:coverage
+
+  test-summary:
+    name: Test Summary
+    runs-on: ubuntu-latest
+    needs: [test]
+    if: always()
+
+    steps:
+      - name: Test Results Summary
+        run: |
+          if [ "${{ needs.test.result }}" = "success" ]; then
+            echo "✅ All tests passed successfully!"
+            echo "Unit tests: ✅ Passed"
+          else
+            echo "❌ Some tests failed:"
+            echo "Unit tests: ${{ needs.test.result == 'success' && '✅ Passed' || '❌ Failed' }}"
+            exit 1
+          fi

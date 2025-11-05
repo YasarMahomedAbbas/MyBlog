@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-loader-primary: hsl(var(--loader-primary));
+  --color-loader-secondary: hsl(var(--loader-secondary));
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+.shadow-xs {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+:root {
+  /* Background & Surface Colors */
+  --background: 0 0% 100%;
+  --foreground: 262 83% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 262 83% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 262 83% 15%;
+
+  /* Primary Brand Colors - Rich Purple */
+  --primary: 262 83% 58%;
+  --primary-foreground: 0 0% 98%;
+
+  /* Secondary Brand Colors - Light Gray */
+  --secondary: 220 14% 96%;
+  --secondary-foreground: 262 83% 15%;
+
+  /* Accent Colors - Coral Pink */
+  --accent: 327 73% 70%;
+  --accent-foreground: 0 0% 98%;
+
+  /* UI State Colors */
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 8% 46%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --warning: 38 92% 50%;
+  --warning-foreground: 0 0% 98%;
+  --success: 142 76% 36%;
+  --success-foreground: 0 0% 98%;
+
+  /* Border & Input Colors */
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 262 83% 58%;
+
+  /* Chart Colors */
+  --chart-1: 262 83% 58%;
+  --chart-2: 327 73% 70%;
+  --chart-3: 38 92% 50%;
+  --chart-4: 200 100% 70%;
+  --chart-5: 16 84% 55%;
+
+  /* Border Radius */
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Background & Surface Colors */
+  --background: 262 83% 6%;
+  --foreground: 0 0% 98%;
+  --card: 262 83% 6%;
+  --card-foreground: 0 0% 98%;
+  --popover: 262 83% 6%;
+  --popover-foreground: 0 0% 98%;
+
+  /* Primary Brand Colors - Lighter Purple for dark mode */
+  --primary: 262 83% 65%;
+  --primary-foreground: 262 83% 15%;
+
+  /* Secondary Brand Colors - Dark Purple */
+  --secondary: 262 50% 15%;
+  --secondary-foreground: 0 0% 98%;
+
+  /* Accent Colors - Slightly muted coral pink */
+  --accent: 327 65% 65%;
+  --accent-foreground: 0 0% 98%;
+
+  /* UI State Colors */
+  --muted: 262 50% 15%;
+  --muted-foreground: 220 15% 65%;
+  --destructive: 0 75% 55%;
+  --destructive-foreground: 0 0% 98%;
+  --warning: 38 92% 50%;
+  --warning-foreground: 0 0% 98%;
+  --success: 142 76% 36%;
+  --success-foreground: 0 0% 98%;
+
+  /* Border & Input Colors */
+  --border: 262 50% 15%;
+  --input: 262 50% 15%;
+  --ring: 262 83% 65%;
+
+  /* Loader Colors */
+  --loader-primary: 262 83% 65%;
+  --loader-secondary: 262 50% 15%;
+
+  /* Chart Colors */
+  --chart-1: 262 83% 65%;
+  --chart-2: 327 65% 65%;
+  --chart-3: 38 92% 50%;
+  --chart-4: 200 100% 70%;
+  --chart-5: 16 84% 55%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-feature-settings:
+    "rlig" 1,
+    "calt" 1;
+}
+
+/* Utility Classes */
+.gradient-hero {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary) / 0.1) 0%,
+    hsl(var(--accent) / 0.05) 50%,
+    hsl(var(--secondary) / 0.1) 100%
+  );
+}
+
+.gradient-cta {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary)) 0%,
+    hsl(var(--accent)) 100%
+  );
+}
