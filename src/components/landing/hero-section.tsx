@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 pt-32 bg-background tech-grid-bg">
+    <section className="min-h-screen flex items-center justify-center px-4 py-20 pt-32 bg-background tech-grid-pattern">
       <div className="max-w-6xl mx-auto text-center">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
           <span className="text-foreground">The Future of</span>
