@@ -8,7 +8,7 @@ interface TechCardProps {
 
 export function TechCard({ icon, title }: TechCardProps) {
   const styledIcon = React.isValidElement(icon)
-    ? React.cloneElement(icon as React.ReactElement, {
+    ? React.cloneElement(icon as React.ReactElement<{ className?: string }>, {
         className: "w-16 h-16 text-primary/30",
       })
     : icon;

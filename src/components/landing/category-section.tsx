@@ -18,7 +18,7 @@ export function CategorySection({
   children,
 }: CategorySectionProps) {
   const styledIcon = React.isValidElement(icon)
-    ? React.cloneElement(icon as React.ReactElement, {
+    ? React.cloneElement(icon as React.ReactElement<{ className?: string }>, {
         className: "w-8 h-8 text-primary",
       })
     : icon;

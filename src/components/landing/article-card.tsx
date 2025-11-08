@@ -9,7 +9,7 @@ interface ArticleCardProps {
 
 export function ArticleCard({ icon, title, time }: ArticleCardProps) {
   const styledIcon = React.isValidElement(icon)
-    ? React.cloneElement(icon as React.ReactElement, {
+    ? React.cloneElement(icon as React.ReactElement<{ className?: string }>, {
         className: "w-12 h-12 text-primary/50",
       })
     : icon;
