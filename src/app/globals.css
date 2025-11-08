@@ -36,29 +36,29 @@
 }
 
 :root {
-  /* Background & Surface Colors */
-  --background: 0 0% 100%;
-  --foreground: 262 83% 15%;
-  --card: 0 0% 100%;
-  --card-foreground: 262 83% 15%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 262 83% 15%;
+  /* Background & Surface Colors - Dark theme */
+  --background: 200 20% 8%;
+  --foreground: 0 0% 95%;
+  --card: 200 15% 12%;
+  --card-foreground: 0 0% 95%;
+  --popover: 200 15% 12%;
+  --popover-foreground: 0 0% 95%;
 
-  /* Primary Brand Colors - Rich Purple */
-  --primary: 262 83% 58%;
-  --primary-foreground: 0 0% 98%;
+  /* Primary Brand Colors - Cyan/Teal */
+  --primary: 180 100% 50%;
+  --primary-foreground: 200 20% 8%;
 
-  /* Secondary Brand Colors - Light Gray */
-  --secondary: 220 14% 96%;
-  --secondary-foreground: 262 83% 15%;
+  /* Secondary Brand Colors - Dark Gray */
+  --secondary: 200 10% 20%;
+  --secondary-foreground: 0 0% 95%;
 
-  /* Accent Colors - Coral Pink */
-  --accent: 327 73% 70%;
-  --accent-foreground: 0 0% 98%;
+  /* Accent Colors - Bright Cyan */
+  --accent: 180 100% 50%;
+  --accent-foreground: 200 20% 8%;
 
   /* UI State Colors */
-  --muted: 220 14% 96%;
-  --muted-foreground: 220 8% 46%;
+  --muted: 200 10% 15%;
+  --muted-foreground: 200 10% 60%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
   --warning: 38 92% 50%;
@@ -67,13 +67,13 @@
   --success-foreground: 0 0% 98%;
 
   /* Border & Input Colors */
-  --border: 220 13% 91%;
-  --input: 220 13% 91%;
-  --ring: 262 83% 58%;
+  --border: 200 10% 20%;
+  --input: 200 10% 20%;
+  --ring: 180 100% 50%;
 
   /* Chart Colors */
-  --chart-1: 262 83% 58%;
-  --chart-2: 327 73% 70%;
+  --chart-1: 180 100% 50%;
+  --chart-2: 280 80% 60%;
   --chart-3: 38 92% 50%;
   --chart-4: 200 100% 70%;
   --chart-5: 16 84% 55%;
@@ -83,28 +83,28 @@
 }
 
 .dark {
-  /* Background & Surface Colors */
-  --background: 262 83% 6%;
+  /* Background & Surface Colors - Even darker for dark mode */
+  --background: 200 25% 6%;
   --foreground: 0 0% 98%;
-  --card: 262 83% 6%;
+  --card: 200 20% 10%;
   --card-foreground: 0 0% 98%;
-  --popover: 262 83% 6%;
+  --popover: 200 20% 10%;
   --popover-foreground: 0 0% 98%;
 
-  /* Primary Brand Colors - Lighter Purple for dark mode */
-  --primary: 262 83% 65%;
-  --primary-foreground: 262 83% 15%;
+  /* Primary Brand Colors - Bright Cyan */
+  --primary: 180 100% 50%;
+  --primary-foreground: 200 25% 6%;
 
-  /* Secondary Brand Colors - Dark Purple */
-  --secondary: 262 50% 15%;
+  /* Secondary Brand Colors - Dark Gray */
+  --secondary: 200 15% 18%;
   --secondary-foreground: 0 0% 98%;
 
-  /* Accent Colors - Slightly muted coral pink */
-  --accent: 327 65% 65%;
-  --accent-foreground: 0 0% 98%;
+  /* Accent Colors - Bright Cyan */
+  --accent: 180 100% 50%;
+  --accent-foreground: 200 25% 6%;
 
   /* UI State Colors */
-  --muted: 262 50% 15%;
+  --muted: 200 15% 12%;
   --muted-foreground: 220 15% 65%;
   --destructive: 0 75% 55%;
   --destructive-foreground: 0 0% 98%;
@@ -114,17 +114,17 @@
   --success-foreground: 0 0% 98%;
 
   /* Border & Input Colors */
-  --border: 262 50% 15%;
-  --input: 262 50% 15%;
-  --ring: 262 83% 65%;
+  --border: 200 15% 18%;
+  --input: 200 15% 18%;
+  --ring: 180 100% 50%;
 
   /* Loader Colors */
-  --loader-primary: 262 83% 65%;
-  --loader-secondary: 262 50% 15%;
+  --loader-primary: 180 100% 50%;
+  --loader-secondary: 200 15% 18%;
 
   /* Chart Colors */
-  --chart-1: 262 83% 65%;
-  --chart-2: 327 65% 65%;
+  --chart-1: 180 100% 50%;
+  --chart-2: 280 80% 60%;
   --chart-3: 38 92% 50%;
   --chart-4: 200 100% 70%;
   --chart-5: 16 84% 55%;
@@ -146,9 +146,9 @@ body {
 .gradient-hero {
   background: linear-gradient(
     135deg,
-    hsl(var(--primary) / 0.1) 0%,
-    hsl(var(--accent) / 0.05) 50%,
-    hsl(var(--secondary) / 0.1) 100%
+    hsl(var(--background)) 0%,
+    hsl(var(--primary) / 0.1) 50%,
+    hsl(var(--background)) 100%
   );
 }
 
