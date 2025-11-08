@@ -162,7 +162,8 @@ body {
 
 /* Added tech-y grid background pattern */
 .tech-grid-pattern {
-  background-image: linear-gradient(rgba(45, 156, 219, 0.03) 1px, transparent 1px),
+  background-image:
+    linear-gradient(rgba(45, 156, 219, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(45, 156, 219, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
   background-position: -1px -1px;
@@ -175,7 +176,7 @@ body {
 
 /* Animated light traversing the grid */
 .tech-grid-bg::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
