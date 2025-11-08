@@ -159,3 +159,11 @@ body {
     hsl(var(--accent)) 100%
   );
 }
+
+/* Added tech-y grid background pattern */
+.tech-grid-bg {
+  background-image: linear-gradient(rgba(45, 156, 219, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 156, 219, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: -1px -1px;
+}

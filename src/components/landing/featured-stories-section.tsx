@@ -26,7 +26,7 @@ export function FeaturedStoriesSection({
   stories,
 }: FeaturedStoriesSectionProps) {
   return (
-    <section className="py-20 px-4 bg-background">
+    <section className="py-20 px-4 bg-background tech-grid-bg">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-12">
           <div>

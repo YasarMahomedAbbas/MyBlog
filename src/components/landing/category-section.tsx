@@ -23,7 +23,7 @@ export function CategorySection({
       })
     : icon;
   return (
-    <section className="py-20 px-4 bg-muted/30">
+    <section className="py-20 px-4 bg-background tech-grid-bg">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-12">
           <div className="flex items-center gap-3">
