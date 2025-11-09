@@ -159,3 +159,50 @@ body {
     hsl(var(--accent)) 100%
   );
 }
+
+/* Added tech-y grid background pattern */
+.tech-grid-pattern {
+  background-image:
+    linear-gradient(rgba(45, 156, 219, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 156, 219, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: -1px -1px;
+}
+
+/* Container with animated light traversing the grid */
+.tech-grid-bg {
+  position: relative;
+}
+
+/* Animated light traversing the grid */
+.tech-grid-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(45, 156, 219, 0.08) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 400% 400%;
+  animation: gridLightSweep 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes gridLightSweep {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
